@@ -11,10 +11,10 @@ import java.util.Objects;
 @Table(name = "hosts", schema = "booking")
 public class Host extends BaseEntity {
 
-    @Column(name = "hosts", length = 50)
+    @Column(name = "hosts", length = 50, nullable = false)
     private String name;
 
-    @Column(name = "email", length = 50)
+    @Column(name = "email", length = 50, nullable = false)
     private String email;
 
     public String getName() {
