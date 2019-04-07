@@ -88,7 +88,6 @@ public class ClientImplTest {
         Client client = clientService.findByName("Mardare Cristina");
         String clientName = client.getName();
         Long clientId = client.getId();
-        String contact = client.getContact();
         Assert.assertEquals(new Long(5), clientId);
         Assert.assertEquals(new String("Mardare Cristina"), clientName);
         System.out.println(client);
