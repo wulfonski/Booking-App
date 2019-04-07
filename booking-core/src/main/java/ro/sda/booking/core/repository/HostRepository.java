@@ -4,4 +4,6 @@ import ro.sda.booking.core.base.EntityRepository;
 import ro.sda.booking.core.entity.Host;
 
 public interface HostRepository extends EntityRepository<Host> {
+
+    public Host findByName(String name);
 }
