@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ro.sda.booking.core.entity.Availability;
 import ro.sda.booking.core.entity.Booking;
+import ro.sda.booking.core.enums.RoomType;
 import ro.sda.booking.core.repository.AvailabilityRepository;
 import ro.sda.booking.core.repository.BookingRepository;
 
@@ -44,7 +45,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public Booking findByRoomType(String roomType){
+    public Booking findByRoomType(RoomType roomType){
        return bookingRepository.findByRoomType(roomType);
     }
 }

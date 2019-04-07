@@ -3,6 +3,7 @@ package ro.sda.booking.core.entity;
 import ro.sda.booking.core.base.BaseEntity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -17,9 +18,11 @@ public class Availability extends BaseEntity {
     @Column(name = "room_name", length = 50, nullable = false)
     private String roomName;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "from_date", nullable = false)
     private Date from;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "to_date", nullable = false)
     private Date to;
 

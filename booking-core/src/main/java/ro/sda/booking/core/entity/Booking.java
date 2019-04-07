@@ -1,6 +1,7 @@
 package ro.sda.booking.core.entity;
 
 import ro.sda.booking.core.base.BaseEntity;
+import ro.sda.booking.core.enums.RoomType;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,9 +19,11 @@ public class Booking extends BaseEntity {
     @JoinColumn(name = "property_id")
     private Property property;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "check_in", nullable = false)
     private Date checkIn;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "check_out", nullable = false)
     private Date checkOut;
 
@@ -28,11 +31,13 @@ public class Booking extends BaseEntity {
     private int nbOfPersons;
 
     @Column(name = "room_type", nullable = false)
-    private String roomType;
+    @Enumerated(EnumType.STRING)
+    private RoomType roomType;
 
     @Column(name = "nr_of_rooms", nullable = false)
     private int nrRooms;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "booking_date", nullable = false)
     private Date bookingDate;
 
@@ -76,11 +81,11 @@ public class Booking extends BaseEntity {
         this.nbOfPersons = nbOfPersons;
     }
 
-    public String getRoomType() {
+    public RoomType getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(String roomType) {
+    public void setRoomType(RoomType roomType) {
         this.roomType = roomType;
     }
 
@@ -111,7 +116,7 @@ public class Booking extends BaseEntity {
                 Objects.equals(getProperty(), booking.getProperty()) &&
                 Objects.equals(getCheckIn(), booking.getCheckIn()) &&
                 Objects.equals(getCheckOut(), booking.getCheckOut()) &&
-                Objects.equals(getRoomType(), booking.getRoomType()) &&
+                getRoomType() == booking.getRoomType() &&
                 Objects.equals(getBookingDate(), booking.getBookingDate());
     }
 
@@ -128,7 +133,7 @@ public class Booking extends BaseEntity {
                 ", checkIn=" + checkIn +
                 ", checkOut=" + checkOut +
                 ", nbOfPersons=" + nbOfPersons +
-                ", roomType='" + roomType + '\'' +
+                ", roomsType=" + roomType +
                 ", nrRooms=" + nrRooms +
                 ", bookingDate=" + bookingDate +
                 '}';

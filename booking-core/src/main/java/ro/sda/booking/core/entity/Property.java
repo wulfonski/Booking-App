@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Property extends BaseEntity {
 
     @Column(name = "name", length = 50, nullable = false)
-    private String name;  
+    private String name;
 
     @ManyToOne
     @JoinColumn(name = "host_id")

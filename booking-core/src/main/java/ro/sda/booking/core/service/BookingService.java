@@ -2,6 +2,7 @@ package ro.sda.booking.core.service;
 
 import ro.sda.booking.core.entity.Availability;
 import ro.sda.booking.core.entity.Booking;
+import ro.sda.booking.core.enums.RoomType;
 
 import java.util.List;
 
@@ -17,5 +18,5 @@ public interface BookingService {
 
     void updateBooking(Booking booking);
 
-    Booking findByRoomType(String roomType);
+    Booking findByRoomType(RoomType roomType);
 }
