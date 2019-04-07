@@ -8,7 +8,7 @@ public interface AvailabilityService {
 
     Availability createAvailability(Availability availability);
 
-    List<Availability> getAllAvailability();
+    List<Availability> getAllAvailabilities();
 
     Availability getAvailabilityById(Long id);
 

@@ -6,11 +6,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import ro.sda.booking.core.entity.Client;
 import ro.sda.booking.core.entity.Host;
-import ro.sda.booking.core.service.ClientService;
 import ro.sda.booking.core.service.HostService;
-
 import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
