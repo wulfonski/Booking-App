@@ -13,6 +13,7 @@ public class Payment extends BaseEntity {
     @Column(name = "amount", nullable = false)
     private Double amount;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "payment_date", nullable = false)
     private Date paymentDate;
 
