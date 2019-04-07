@@ -52,7 +52,7 @@ public class Host extends BaseEntity {
     public String toString() {
         return "Host{" +
                 "id=" + getId() +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
