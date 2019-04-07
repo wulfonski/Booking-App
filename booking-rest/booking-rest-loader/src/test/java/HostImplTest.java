@@ -56,7 +56,6 @@ public class HostImplTest {
         String hostName = host.getName();
         Assert.assertEquals("Unirea", hostName);
         Assert.assertEquals(new Long(2), hostId);
-        System.out.println(host);
     }
 
     @Test
@@ -88,6 +87,5 @@ public class HostImplTest {
         Long hostId = host.getId();
         Assert.assertEquals(new Long(3), hostId);
         Assert.assertEquals(new String("Hilton"), hostName);
-        System.out.println(host);
     }
 }

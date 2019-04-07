@@ -58,7 +58,6 @@ public class ClientImplTest {
         String clientName = client.getName();
         Assert.assertEquals("Madalina Georgiana", clientName);
         Assert.assertEquals(new Long(4), clientId);
-        System.out.println(client);
     }
 
     @Test
@@ -90,7 +89,6 @@ public class ClientImplTest {
         Long clientId = client.getId();
         Assert.assertEquals(new Long(5), clientId);
         Assert.assertEquals(new String("Mardare Cristina"), clientName);
-        System.out.println(client);
     }
 
 
