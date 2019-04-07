@@ -22,7 +22,7 @@ public class AvailabilityServiceImpl implements AvailabilityService{
     }
 
     @Override
-    public List<Availability> getAllAvailability() {
+    public List<Availability> getAllAvailabilities() {
            return availabilityRepository.findAll();
     }
 

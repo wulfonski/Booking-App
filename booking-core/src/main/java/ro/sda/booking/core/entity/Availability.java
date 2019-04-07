@@ -1,9 +1,9 @@
 package ro.sda.booking.core.entity;
 
 import ro.sda.booking.core.base.BaseEntity;
+import ro.sda.booking.core.enums.RoomType;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
@@ -20,14 +20,15 @@ public class Availability extends BaseEntity {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "from_date", nullable = false)
-    private Date from;
+    private Date fromDate;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "to_date", nullable = false)
-    private Date to;
+    private Date toDate;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "room_type", length = 50, nullable = false)
-    private String roomType;
+    private RoomType roomType;
 
     @Column(name = "price_double", length = 50, nullable = false)
     private Double priceDouble;
@@ -51,27 +52,27 @@ public class Availability extends BaseEntity {
         this.roomName = roomName;
     }
 
-    public Date getFrom() {
-        return from;
+    public Date getFromDate() {
+        return fromDate;
     }
 
-    public void setFrom(Date from) {
-        this.from = from;
+    public void setFromDate(Date from) {
+        this.fromDate = from;
     }
 
-    public Date getTo() {
-        return to;
+    public Date getToDate() {
+        return toDate;
     }
 
-    public void setTo(Date to) {
-        this.to = to;
+    public void setToDate(Date to) {
+        this.toDate = to;
     }
 
-    public String getRoomType() {
+    public RoomType getRoomType() {
         return roomType;
     }
 
-    public void setRoomType(String roomType) {
+    public void setRoomType(RoomType roomType) {
         this.roomType = roomType;
     }
 
@@ -98,8 +99,8 @@ public class Availability extends BaseEntity {
         Availability that = (Availability) o;
         return Objects.equals(getProperty(), that.getProperty()) &&
                 Objects.equals(getRoomName(), that.getRoomName()) &&
-                Objects.equals(getFrom(), that.getFrom()) &&
-                Objects.equals(getTo(), that.getTo()) &&
+                Objects.equals(getFromDate(), that.getFromDate()) &&
+                Objects.equals(getToDate(), that.getToDate()) &&
                 Objects.equals(getRoomType(), that.getRoomType()) &&
                 Objects.equals(getPriceDouble(), that.getPriceDouble()) &&
                 Objects.equals(getPriceSingle(), that.getPriceSingle());
@@ -107,7 +108,7 @@ public class Availability extends BaseEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getProperty(), getRoomName(), getFrom(), getTo(), getRoomType(), getPriceDouble(), getPriceSingle());
+        return Objects.hash(getProperty(), getRoomName(), getFromDate(), getToDate(), getRoomType(), getPriceDouble(), getPriceSingle());
     }
 
     @Override
@@ -115,8 +116,8 @@ public class Availability extends BaseEntity {
         return "Availability{" +
                 "property=" + property +
                 ", roomName='" + roomName + '\'' +
-                ", from=" + from +
-                ", to=" + to +
+                ", from=" + fromDate +
+                ", to=" + toDate +
                 ", roomType='" + roomType + '\'' +
                 ", priceDouble=" + priceDouble +
                 ", priceSingle=" + priceSingle +
