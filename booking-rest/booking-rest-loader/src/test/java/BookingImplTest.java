@@ -56,8 +56,12 @@ public class BookingImplTest {
         Date date = new Date();
         booking.setBookingDate(date);
 
+        int nbOfPerson = booking.getNbOfPersons();
+        RoomType roomType = booking.getRoomType();
+
         bookingService.createBooking(booking);
-        Assert.assertNotNull(booking);
+        Assert.assertEquals(2, nbOfPerson);
+        Assert.assertEquals(RoomType.DOUBLE, roomType);
     }
 
     @Test

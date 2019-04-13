@@ -23,13 +23,13 @@ public class ClientImplTest {
     @Rollback(false)
     public void testCreateClient() {
         Client client = new Client();
-        client.setName("Andreea SRL");
-        client.setEmail("josef@yahoo.com");
-        client.setContact("0746139825");
+        client.setName("Hahahah SRL");
+        client.setEmail("jssds@yahoo.com");
+        client.setContact("0746558825");
         clientService.createClient(client);
-        Assert.assertEquals("Andreea SRL", client.getName());
-        Assert.assertEquals("josef@yahoo.com", client.getEmail());
-        Assert.assertEquals("0746139825", client.getContact());
+        Assert.assertEquals("Hahahah SRL", client.getName());
+        Assert.assertEquals("jssds@yahoo.com", client.getEmail());
+        Assert.assertEquals("0746558825", client.getContact());
 
     }
 
@@ -65,7 +65,7 @@ public class ClientImplTest {
     public void testDeleteClient() {
         List<Client> allClients = clientService.getAllClients();
         int size1 = allClients.size();
-        Client client = clientService.getClientById(1L);
+        Client client = clientService.getClientById(7L);
         clientService.deleteClient(client);
         List<Client> allClients2 = clientService.getAllClients();
         int size2 = allClients2.size();
@@ -84,7 +84,7 @@ public class ClientImplTest {
 
     @Test
     public void testFindByName() {
-        Client client = clientService.findByName("Mardare Cristina");
+        Client client = clientService.getByName("Mardare Cristina");
         String clientName = client.getName();
         Long clientId = client.getId();
         Assert.assertEquals(new Long(5), clientId);

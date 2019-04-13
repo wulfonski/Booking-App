@@ -15,5 +15,5 @@ public interface ClientService {
 
     void updateClient(Client client);
 
-    public Client findByName(String name);
+    Client getByName(String name);
 }

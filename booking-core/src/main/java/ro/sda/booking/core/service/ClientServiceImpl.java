@@ -44,7 +44,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client findByName(String name) {
+    public Client getByName(String name) {
 
         return clientRepository.findByName(name);
     }
