@@ -25,14 +25,14 @@ public class ClientRestService {
         return clientService.getAllClients();
     }
 
-    @Path("/getById/{id}")
+    @Path("/get/id/{id}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Client getClientById(@PathParam("id") Long id) {
         return clientService.getClientById(id);
     }
 
-    @Path("/getByName/{name}")
+    @Path("/get/name/{name}")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Client findByName(@PathParam("name") String name) {
@@ -48,7 +48,7 @@ public class ClientRestService {
         clientService.deleteClient(client);
     }
 
-    @Path("/createClient")
+    @Path("/create")
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
@@ -56,13 +56,12 @@ public class ClientRestService {
         return clientService.createClient(client);
     }
 
-    @Path("/updateClient")
+    @Path("/update")
     @POST
     @Transactional
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateClient(Client client){
-//        Client client = clientService.getClientById(id);
         clientService.updateClient(client);
     }
 }
