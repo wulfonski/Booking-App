@@ -11,6 +11,7 @@ import ro.sda.booking.core.service.AvailabilityService;
 import ro.sda.booking.core.service.PropertyService;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -32,11 +33,11 @@ public class AvailabilityImplTest {
     public void testCreateAvailability() {
         Availability availability = new Availability();
         availability.setProperty(propertyService.getPropertyById(1L));
-      availability.setRoomName("3C");
+        availability.setRoomName("3C");
 
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(0);
-        cal.set(2019,Calendar.APRIL, 01);
+        cal.set(2019, Calendar.APRIL, 01);
         Date fromDate = cal.getTime();
         availability.setFromDate(fromDate);
 
@@ -92,4 +93,22 @@ public class AvailabilityImplTest {
         int size2 = allAvailabilities2.size();
         Assert.assertEquals(size1 - 1, size2);
     }
+
+    @Test
+    @Rollback(false)
+    public void testFindAvailabilitiesByFromDateLessThanEqualAndToDateGreaterThanEqual() {
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeInMillis(0);
+        cal.set(2019, Calendar.JANUARY, 15);
+        Date fromDate = cal.getTime();
+
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTimeInMillis(0);
+        cal1.set(2019, Calendar.MAY, 8);
+        Date toDate = cal1.getTime();
+
+        List<Availability> allAvailabilities = availabilityService.findAvailabilitiesByFromDateLessThanEqualAndToDateGreaterThanEqual(fromDate, toDate);
+        Assert.assertEquals(2, allAvailabilities.size());
+    }
+
 }

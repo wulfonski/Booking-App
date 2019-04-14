@@ -6,6 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 import ro.sda.booking.core.entity.Availability;
 import ro.sda.booking.core.repository.AvailabilityRepository;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service("availabilityService")
@@ -39,6 +43,10 @@ public class AvailabilityServiceImpl implements AvailabilityService{
     @Override
     public void updateAvailability(Availability availability) {
         availabilityRepository.save(availability);
+    }
+
+    public List<Availability> findAvailabilitiesByFromDateLessThanEqualAndToDateGreaterThanEqual(Date fromDate, Date toDate){
+        return availabilityRepository.findAvailabilitiesByFromDateLessThanEqualAndToDateGreaterThanEqual(fromDate, toDate);
     }
 
 }

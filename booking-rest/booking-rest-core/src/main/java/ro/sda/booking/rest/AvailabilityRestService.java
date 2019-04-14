@@ -10,6 +10,9 @@ import ro.sda.booking.core.service.ClientService;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -57,5 +60,14 @@ public class AvailabilityRestService {
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateAvailability(Availability availability){
         availabilityService.updateAvailability(availability);
+    }
+
+    @Path("/get/between")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Availability> getAvailabilityFromDateToDate(@QueryParam("from") String fromDate,@QueryParam("to") String toDate ) throws ParseException {
+        Date fromDate1 =new SimpleDateFormat("yyyy-MM-dd").parse(fromDate);
+        Date toDate1 =new SimpleDateFormat("yyyy-MM-dd").parse(toDate);
+        return availabilityService.findAvailabilitiesByFromDateLessThanEqualAndToDateGreaterThanEqual(fromDate1, toDate1);
     }
 }
