@@ -19,4 +19,6 @@ public interface BookingService {
     void updateBooking(Booking booking);
 
     Booking findByRoomType(RoomType roomType);
+
+    void sendBookingMail(Booking booking);
 }

@@ -28,6 +28,7 @@
         <mysql.connector.version>8.0.12</mysql.connector.version>
         <junit.version>4.12</junit.version>
         <javax.servlet.version>2.5</javax.servlet.version>
+        <javax.mail.version>1.5.5</javax.mail.version>
         <jboss.logging.version>3.3.0.Final</jboss.logging.version>
     </properties>
 
@@ -135,6 +136,14 @@
                 <version>${jboss.logging.version}</version>
             </dependency>
             <!-- JBoss Logging Dependencies END -->
+
+            <!-- JAVAX Mail Dependencies START -->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>${javax.mail.version}</version>
+            </dependency>
+            <!-- JAVAX Mail Dependencies START -->
         </dependencies>
     </dependencyManagement>
 

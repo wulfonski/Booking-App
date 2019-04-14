@@ -39,19 +39,19 @@ public class BookingImplTest {
         booking.setClient(clientService.getClientById(2L));
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(0);
-        cal.set(2019, 05, 13);
+        cal.set(2019, 05, 10);
         Date checkInDate = cal.getTime();
         booking.setCheckIn(checkInDate);
 
         Calendar cal1 = Calendar.getInstance();
         cal1.setTimeInMillis(0);
-        cal1.set(2019, 05, 20);
+        cal1.set(2019, 05, 15);
         Date checkOutDate = cal1.getTime();
         booking.setCheckOut(checkOutDate);
 
-        booking.setNbOfPersons(2);
-        booking.setRoomType(RoomType.DOUBLE);
-        booking.setNrRooms(1);
+        booking.setNbOfPersons(3);
+        booking.setRoomType(RoomType.SINGLE);
+        booking.setNrRooms(2);
 
         Date date = new Date();
         booking.setBookingDate(date);
@@ -60,8 +60,10 @@ public class BookingImplTest {
         RoomType roomType = booking.getRoomType();
 
         bookingService.createBooking(booking);
-        Assert.assertEquals(2, nbOfPerson);
-        Assert.assertEquals(RoomType.DOUBLE, roomType);
+        bookingService.sendBookingMail(booking);
+        Assert.assertEquals(3, nbOfPerson);
+        Assert.assertEquals(RoomType.SINGLE, roomType);
+
     }
 
     @Test
